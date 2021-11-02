@@ -27,30 +27,30 @@ print () {
 
   position (input) {
     if (input === 'r') {
-      y += 1
+      b += 1
     } else if (input === 'l') {
-      y -= 1
+      b -= 1
     } else if (input === 'd') {
-      x += 1
+      a += 1
     } else if (input === 'u') {
-      x -= 1
+      a -= 1
     } else {
       console.log('Please enter u, d, r or l')
     }
-    return [x, y]
+    return [a, b]
   }
 success (coordonates) {
-    let a = coordonates[0]
-    let b = coordonates[1]
+    let x = coordonates[0]
+    let y = coordonates[1]
     while (!foundHat) {
-      if (a === -1 || b === -1 || this._field[a][b] === hole) {
-        console.log('You lost')
+      if (x === -1 || y === -1 || this._field[x][y] === hole) {
+        console.log('Sorry! You lost')
         foundHat = true
-      } else if (this._field[a][b] === hat) {
-        console.log('You won!')
+      } else if (this._field[x][y] === hat) {
+        console.log('Great! You won!')
         foundHat = true
       } else {
-        this._field[a][b] = '*'
+        this._field[x][y] = '*'
         console.log('Continue')
         console.log(this._field.join('\n').replace(/,/g, ""))
         this.input()
